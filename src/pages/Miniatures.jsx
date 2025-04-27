@@ -1,20 +1,24 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
+import allProducts from '../data/products.json';
 import './Miniatures.css';
 
-const miniatures = [
-  { id: '1', title: 'Knight Commander', description: 'A detailed resin knight.', image: 'https://via.placeholder.com/300x200' },
-  { id: '2', title: 'Dragon Warlord', description: 'Epic dragon model.', image: 'https://via.placeholder.com/300x200' },
-  { id: '3', title: 'Elf Ranger', description: 'Lightweight and detailed.', image: 'https://via.placeholder.com/300x200' },
-];
-
 const Miniatures = () => {
+  const miniatures = allProducts.filter(product => product.category === 'miniatures');
+
   return (
     <div className="miniatures-container">
       <h1>Miniatures</h1>
       <div className="products-grid">
-        {miniatures.map((item, index) => (
-          <ProductCard key={index} {...item} />
+        {miniatures.map((item) => (
+          <ProductCard
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            description={item.description}
+            image={`/images/${item.image}`} // Assuming images will be placed inside /public/images/
+            price={item.price}
+          />
         ))}
       </div>
     </div>
@@ -22,3 +26,4 @@ const Miniatures = () => {
 };
 
 export default Miniatures;
+

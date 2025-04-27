@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import Miniatures from './pages/Miniatures';
 import Books from './pages/Books';
 import Paints from './pages/Paints';
+import Cart from './pages/Cart';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/miniatures" element={<Miniatures />} />
         <Route path="/books" element={<Books />} />
         <Route path="/paints" element={<Paints />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
       <Footer />

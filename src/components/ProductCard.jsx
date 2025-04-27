@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './ProductCard.css';
 
-const ProductCard = ({ title, description, image, id }) => {
+const ProductCard = ({ id, title, description, image }) => {
+  const { addToCart } = useCart(); 
+
+  const handleAddToCart = () => {
+    addToCart({ id, title, description, image });
+  };
+
   return (
     <div className="product-card">
       <Link to={`/product/${id}`}>
@@ -10,7 +17,7 @@ const ProductCard = ({ title, description, image, id }) => {
         <h3>{title}</h3>
       </Link>
       <p>{description}</p>
-      <button>Add to Cart</button>
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 };

@@ -1,8 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -11,10 +6,15 @@ import Miniatures from './pages/Miniatures';
 import Books from './pages/Books';
 import Paints from './pages/Paints';
 import Cart from './pages/Cart';
+import AdminDashboard from './pages/AdminDashboard';
+import UserDashboard from './pages/UserDashboard';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProductDetail from './pages/ProductDetail';
+import DashboardRedirect from './pages/DashboardRedirect';
 import './App.css'
 
 
@@ -32,6 +32,11 @@ function App() {
         <Route path="/paints" element={<Paints />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<DashboardRedirect />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/user" element={<UserDashboard />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,29 +1,34 @@
 nav {
-    background-color: #333;
-    padding: 1rem 2rem;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #ffd700;
-  }
+  background-color: #333;
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a, .logout-button { /* ✅ Apply styles to links AND logout button */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  background: none; /* ✅ Make button background like link */
+  border: none;     /* ✅ Remove border from button */
+  cursor: pointer;  /* ✅ Make it a pointer like a link */
+  font-size: 1rem;  /* ✅ Match size */
+}
+
+nav ul li a:hover, .logout-button:hover { /* ✅ Hover effects */
+  color: #ffd700;
+}
+
   

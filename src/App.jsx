@@ -17,6 +17,9 @@ import ProductDetail from './pages/ProductDetail';
 import DashboardRedirect from './pages/DashboardRedirect';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute'; // ✅ import it
 import ProtectedUserRoute from './components/ProtectedUserRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 import './App.css'
@@ -51,6 +54,7 @@ function App() {
         } />
       </Routes>
       <Footer />
+      <ToastContainer />
     </Router>
   );
 }

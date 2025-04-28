@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import { toast } from 'react-toastify'; // ✅ Import toast
 import './Navbar.css';
 
 function Navbar() {
@@ -12,6 +13,10 @@ function Navbar() {
   const handleLogout = () => {
     logout();          // 1. Clear user
     navigate('/');     // 2. Redirect to Home
+    toast.success('Logged out successfully!', {
+      position: "top-center",
+      autoClose: 2000, // 2 seconds
+    });
   };
 
   return (

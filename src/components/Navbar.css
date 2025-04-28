@@ -31,4 +31,9 @@ nav ul li a:hover, .logout-button:hover { /* ✅ Hover effects */
   color: #ffd700;
 }
 
+.user-email {
+  color: #ffd700; /* Gold color to stand out */
+  font-weight: bold;
+}
+
   

@@ -1,36 +1,32 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import './ProductDetail.css';
-
-const allProducts = [
-  // Miniatures
-  { id: '1', title: 'Knight Commander', description: 'A detailed resin knight.', image: 'https://via.placeholder.com/300x200' },
-  { id: '2', title: 'Dragon Warlord', description: 'Epic dragon model.', image: 'https://via.placeholder.com/300x200' },
-  { id: '3', title: 'Elf Ranger', description: 'Lightweight and detailed.', image: 'https://via.placeholder.com/300x200' },
-  // Books
-  { id: '4', title: 'Painting Guide', description: 'Learn to paint like a pro.', image: 'https://via.placeholder.com/300x200' },
-  { id: '5', title: 'Miniature Lore', description: 'Stories behind your miniatures.', image: 'https://via.placeholder.com/300x200' },
-  { id: '6', title: 'Model Building 101', description: 'Starter guide for beginners.', image: 'https://via.placeholder.com/300x200' },
-  // Paints
-  { id: '7', title: 'Acrylic Starter Set', description: 'All basic colors you need.', image: 'https://via.placeholder.com/300x200' },
-  { id: '8', title: 'Metallic Effects', description: 'Shiny metallic paints.', image: 'https://via.placeholder.com/300x200' },
-  { id: '9', title: 'Brush Cleaner', description: 'Keep your brushes fresh.', image: 'https://via.placeholder.com/300x200' },
-];
+import { useParams, Link } from 'react-router-dom';
+import allProducts from '../data/products.json'; // Import your products
+import './ProductDetail.css'; // (Optional) Style file
 
 const ProductDetail = () => {
-  const { id } = useParams();
-  const product = allProducts.find((item) => item.id === id);
+  const { id } = useParams(); // Get product id from URL
+  const product = allProducts.find((item) => item.id === parseInt(id)); // Find product
 
-  if (!product) return <h2>Product not found</h2>;
+  if (!product) {
+    return <h2>Product not found.</h2>; // Error if product not found
+  }
 
   return (
     <div className="product-detail-container">
-      <img src={product.image} alt={product.title} />
-      <h1>{product.title}</h1>
-      <p>{product.description}</p>
-      <button>Add to Cart</button>
+      <img
+        src={`/images/${product.image}`}
+        alt={product.name}
+        className="product-detail-image"
+      />
+      <h1>{product.name}</h1>
+      <p className="product-detail-description">{product.description}</p>
+      <h2 className="product-detail-price">${product.price.toFixed(2)}</h2>
+
+      {/* Back button */}
+      <Link to="/" className="back-button">← Back to Home</Link>
     </div>
   );
 };
 
 export default ProductDetail;
+

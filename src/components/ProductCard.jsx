@@ -12,13 +12,15 @@ const ProductCard = ({ id, title, description, image, price }) => {
 
   return (
     <div className="product-card">
-      <Link to={`/product/${id}`}>
-        <img src={image} alt={title} />
-        <h3>{title}</h3>
+      <Link to={`/product/${id}`} className="product-link">
+        <img src={image} alt={title} className="product-image" />
+        <h3 className="product-title">{title}</h3>
       </Link>
-      <p>{description}</p>
-      <p><strong>${price.toFixed(2)}</strong></p>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+      <p className="product-description">
+        {description.length > 80 ? `${description.substring(0, 80)}...` : description}
+      </p>
+      <p className="product-price"><strong>${price.toFixed(2)}</strong></p>
+      <button onClick={handleAddToCart} className="add-to-cart-button">Add to Cart</button>
     </div>
   );
 };

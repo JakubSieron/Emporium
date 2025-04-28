@@ -29,6 +29,11 @@ function Navbar() {
           </Link>
         </li>
 
+        {/* 🔥 If user is logged in, show their email */}
+        {user && (
+          <li className="user-email">Hi, {user.email}</li>
+        )}
+
         {!user && (
           <>
             <li><Link to="/login">Login</Link></li>

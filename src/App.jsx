@@ -15,6 +15,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProductDetail from './pages/ProductDetail';
 import DashboardRedirect from './pages/DashboardRedirect';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute'; // ✅ import it
+import ProtectedUserRoute from './components/ProtectedUserRoute';
+
+
 import './App.css'
 
 
@@ -35,8 +39,16 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<DashboardRedirect />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/user" element={<UserDashboard />} />
+        <Route path="/admin" element={
+          <ProtectedAdminRoute>
+            <AdminDashboard />
+        </ProtectedAdminRoute>
+        } />
+        <Route path="/user" element={
+          <ProtectedUserRoute>
+            <UserDashboard />
+        </ProtectedUserRoute>
+        } />
       </Routes>
       <Footer />
     </Router>

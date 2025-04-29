@@ -1,8 +1,21 @@
 .site-footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem 2rem;
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
+  width: 100%;
+  background-color: #333;         /* dark like navbar */
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  position: relative;
+  bottom: 0;
+}
+.site-footer {
+  width: 100%;
+  background-color: #333;     /* Dark footer background */
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin: 0;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}

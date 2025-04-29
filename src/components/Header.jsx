@@ -4,8 +4,8 @@ import './Header.css';
 const Header = () => {
   return (
     <header className="site-header">
-      <h1>Hobby Haven</h1>
-      <p>Where creativity comes to life</p>
+      <h1>Fantasy Miniatures Emporium</h1>
+      <p>Your realm of paints, books, and epic battles</p>
     </header>
   );
 };

@@ -15,46 +15,38 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ProductDetail from './pages/ProductDetail';
 import DashboardRedirect from './pages/DashboardRedirect';
-import ProtectedAdminRoute from './components/ProtectedAdminRoute'; // ✅ import it
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 import ProtectedUserRoute from './components/ProtectedUserRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
-import './App.css'
-
+import './App.css';
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Header />  
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/miniatures" element={<Miniatures />} />
-        <Route path="/books" element={<Books />} />
-        <Route path="/paints" element={<Paints />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<DashboardRedirect />} />
-        <Route path="/admin" element={
-          <ProtectedAdminRoute>
-            <AdminDashboard />
-        </ProtectedAdminRoute>
-        } />
-        <Route path="/user" element={
-          <ProtectedUserRoute>
-            <UserDashboard />
-        </ProtectedUserRoute>
-        } />
-      </Routes>
-      <Footer />
-      <ToastContainer />
+      <div className="app-layout">
+        <Navbar />
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/miniatures" element={<Miniatures />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/paints" element={<Paints />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<DashboardRedirect />} />
+            <Route path="/admin" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute>} />
+            <Route path="/user" element={<ProtectedUserRoute><UserDashboard /></ProtectedUserRoute>} />
+          </Routes>
+        </main>
+        <Footer />
+        <ToastContainer />
+      </div>
     </Router>
   );
 }

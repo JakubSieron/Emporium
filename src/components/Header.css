@@ -1,9 +1,11 @@
 .site-header {
     background-color: #444;
     color: white;
-    padding: 1.5rem 2rem;
     text-align: center;
     margin-bottom: 2rem;
+    padding: 4rem 2rem;
+    background-size: cover;
+    background-position: center;
   }
   
   .site-header h1 {
@@ -16,3 +18,26 @@
     font-style: italic;
   }
   
+  .header-home {
+    background-image: url('/images/home-banner.png');
+  }
+  
+  .header-about {
+    background-image: url('/images/about-banner.png');
+  }
+  
+  .header-contact {
+    background-image: url('/images/contact-banner.png');
+  }
+  
+  .header-miniatures {
+    background-image: url('/images/miniatures-banner.webp');
+  }
+  
+  .header-books {
+    background-image: url('/images/books-banner.png');
+  }
+  
+  .header-paints {
+    background-image: url('/images/paints-banner.png');
+  }

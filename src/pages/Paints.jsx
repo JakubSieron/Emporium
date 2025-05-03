@@ -8,7 +8,6 @@ const Paints = () => {
 
   return (
     <div className="paints-container">
-      <h1>Paints</h1>
       <div className="products-grid">
         {paints.map((item) => (
           <ProductCard

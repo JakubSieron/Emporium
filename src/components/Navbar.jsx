@@ -1,11 +1,13 @@
-import React from 'react';
+import React,  { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { toast } from 'react-toastify';
+import CartDrawer from '../components/CartDrawer';
 import './Navbar.css';
 
 function Navbar() {
+  const [showDrawer, setShowDrawer] = useState(false);
   const { user, logout } = useAuth();
   const { cartItems } = useCart();
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -21,8 +23,9 @@ function Navbar() {
   };
 
   return (
-    <nav>
-        <ul>
+     <>
+    <nav className="navbar">
+        <ul className="nav-list">
         <li>
           <Link to="/">
             <img src="/images/logo.png" alt="Logo" className="navbar-logo" />
@@ -34,13 +37,12 @@ function Navbar() {
           <li><Link to="/contact">Contact Us</Link></li>
           <li><Link to="/about">About Us</Link></li>
           <li>
-            <Link to="/cart" className="cart-link">
+            <button onClick={() => setShowDrawer(true)} className="cart-link">
               <i className="fas fa-shopping-cart"></i>
               {totalItems > 0 && (
                 <span className="cart-count">{totalItems}</span>
               )}
-            </Link>
-
+            </button>
           </li>
           {!user && (
             <>
@@ -66,6 +68,9 @@ function Navbar() {
           )}
         </ul>
     </nav>
+
+<CartDrawer isOpen={showDrawer} onClose={() => setShowDrawer(false)} />
+  </>
   );
 }
 

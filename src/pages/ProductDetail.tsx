@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import allProducts from '../data/products.json';
 import './ProductDetail.css';
+
+type Product = {
+  _id: string;
+  name: string;
+  image: string;
+  description: string;
+  category: string;
+  price: number;
+};
 
 const ProductDetail: React.FC<{ isModal?: boolean }> = ({ isModal = false }) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { cartItems, addToCart, decrementFromCart, removeFromCart } = useCart();
 
-  const product = allProducts.find((item) => item.id === parseInt(id || '', 10));
-  const quantity = cartItems.find((item) => item.id === product?.id)?.quantity || 0;
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  if (!product) {
-    return <h2>Product not found.</h2>;
-  }
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/products/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [id]);
 
-  const handleAdd = () => addToCart(product);
-  const handleRemoveOne = () => decrementFromCart(product.id);
-  const handleRemoveAll = () => removeFromCart(product.id);
+  const quantity = cartItems.find((item) => item.id === id)?.quantity || 0;
+
+  const handleAdd = () => product && addToCart(product);
+  const handleRemoveOne = () => product && decrementFromCart(product._id);
+  const handleRemoveAll = () => product && removeFromCart(product._id);
+
+  if (loading) return <p>Loading...</p>;
+  if (!product) return <h2>Product not found.</h2>;
 
   const content = (
     <div className="product-detail-content">
@@ -27,8 +48,7 @@ const ProductDetail: React.FC<{ isModal?: boolean }> = ({ isModal = false }) => 
         alt={product.name}
         className="product-detail-image"
       />
-      <h1>{product.name}</h1>
-      <h2 className="product-detail-title">{product.name}</h2> 
+      <h1 className="product-detail-title">{product.name}</h1>
       <p className="product-detail-description">{product.description}</p>
       <h2 className="product-detail-price">€{product.price.toFixed(2)}</h2>
 

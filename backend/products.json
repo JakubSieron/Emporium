@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "name": "Dwarfen Mountain Holds Battalion",
+    "category": "miniatures",
+    "image": "dwarf1.jpg",
+    "price": 120.99,
+    "description": "Mighty armies mustered from the Dwarfen Mountain Holds\n can both blast the foe at range, and crush them up close."
+  },
+  {
+    "id": 2,
+    "name": "Dwarf Ironbreakers",
+    "category": "miniatures",
+    "image": "dwarf3.jpg",
+    "price": 55.99,
+    "description": "Ironbreakers guard the deepest Dwarfen tunnels \n from those who would otherwise invade their holds and domains."
+  },
+  {
+    "id": 3,
+    "name": "Dwarf Warriors",
+    "category": "miniatures",
+    "image": "dwarf2.jpg",
+    "price": 47.49,
+    "description": "Dwarf Warriors are formidable fighters – strong and extremely resilient,\n broad of shoulder, with powerful arms and a low centre of gravity." 
+  },
+  {
+    "id": 4,
+    "name": "Lothern Sea Guard",
+    "category": "miniatures",
+    "image": "elf1.jpg",
+    "price": 39.99,
+    "description": "The Lothern Sea Guard crew warships \n and act as the vanguard for the oncoming Ulthuan host."
+  },
+  {
+    "id": 5,
+    "name": "Ellyrian Reavers",
+    "category": "miniatures",
+    "image": "elf2.jpg",
+    "price": 74.99,
+    "description": "Ellyrian Reavers are the descendants of generations of \n expert cavalry from Ellyrion – a land renowned for the quality of the horses\n it breeds and skilled riders it produces."
+  },
+  {
+    "id": 6,
+    "name": "Flamespyre Phoenix",
+    "category": "miniatures",
+    "image": "elf3.jpg",
+    "price": 49.99,
+    "description": "Flamespyre Phoenixes dwell amongst the great alabaster pillars of rock \n that stand sentinel above the Shrine of Asuryan, \n around which the Winds of Magic blow a constant gale." 
+  },
+  {
+    "id": 7,
+    "name": "Orc Boar Chariots",
+    "category": "miniatures",
+    "image": "ork1.jpg",
+    "price": 39.99,
+    "description": "By lashing together roughly-hewn planks and bolting round(ish) wheels to a sturdy axle,\n Orcs can build formidable chariots drawn by pairs of boars."
+  },
+  {
+    "id": 8,
+    "name": "Troll Hag",
+    "category": "miniatures",
+    "image": "ork2.jpg",
+    "price": 69.99,
+    "description": "Troll Hags are loathsome creatures, far larger and more dangerous than their kin."
+  },
+  {
+    "id": 9,
+    "name": "Goblin Wolf Rider Mob",
+    "category": "miniatures",
+    "image": "ork3.jpg",
+    "price": 55.99,
+    "description": "Many Goblin tribes are nomadic in nature,\n traversing the wilderness in huge, ramshackle caravans."
+  },
+  {
+    "id": 10,
+    "name": "Chaos Warriors",
+    "category": "miniatures",
+    "image": "chaos1.jpg",
+    "price": 49.99,
+    "description": "The Chaos Warriors who torment the Old World are no longer truly human."
+  },
+  {
+    "id": 11,
+    "name": "Dragon Ogre Shaggoth",
+    "category": "miniatures",
+    "image": "chaos2.jpg",
+    "price": 59.99,
+    "description": "Dragon Ogre Shaggoths are the oldest of their kind,\n ancient enough to have bargained with the Ruinous Powers themselves."
+  },
+  {
+    "id": 12,
+    "name": "Sorcerer of Chaos",
+    "category": "miniatures",
+    "image": "chaos3.jpg",
+    "price": 19.99,
+    "description": "Chaos Sorcerers wield the wild energies of Chaos itself,\n reshaping reality to serve the whims of their dark masters."
+  },
+  {
+    "id": 13,
+    "name": "Knights of the Realm",
+    "category": "miniatures",
+    "image": "bret1.jpg",
+    "price": 49.99,
+    "description": "Knights of the Realm make up the bulk of Bretonnia’s nobility and its armed might,\n and command great respect for both their high station and the deeds they performed to attain it. "
+  },
+  {
+    "id": 14,
+    "name": "Lady Elisse Duchaard",
+    "category": "miniatures",
+    "image": "bret2.jpg",
+    "price": 29.99,
+    "description": "Lady Elisse Duchaard is the Prophetess of the Duke of Brionne and a herald of the Lady of the Lake’s will."
+  },
+  {
+    "id": 15,
+    "name": "Pegasus Knights",
+    "category": "miniatures",
+    "image": "bret3.jpg",
+    "price": 44.99,
+    "description": "Pegasus Knights are made up almost exclusively of Knights of the Realm,\n but only the wealthiest and most influential knights can boast of owning a battle-trained pegasus,\n for the creatures are difficult to capture and harder still to train."
+  },
+  {
+    "id": 16,
+    "name": "Hills",
+    "category": "miniatures",
+    "image": "ter1.jpg",
+    "price": 25.99,
+    "description": "Hills offer a tactical advantage for artillery, archers, and any commander seeking a vantage point."
+  },
+  {
+    "id": 17,
+    "name": "Arcane Ruins",
+    "category": "miniatures",
+    "image": "ter3.jpg",
+    "price": 49.99,
+    "description": "Arcane Ruins are littered across the Old World – forgotten relics of bygone eras."
+  },
+  {
+    "id": 18,
+    "name": "Watchtower",
+    "category": "miniatures",
+    "image": "ter2.jpg",
+    "price": 49.99,
+    "description": "Watchtowers are erected along roads and rivers,\n on the borders between provinces, and on the outskirts of towns and forests."
+  },
+  {
+    "id": 19,
+    "name": "Tomb King on Bone Dragon",
+    "category": "miniatures",
+    "image": "tomb1.jpg",
+    "price": 79.99,
+    "description": "Tomb Kings are the ancient, long-dead rulers of Nehekhara,\n reborn through the archaic rituals of their Liche Priests."
+  },
+  {
+    "id": 20,
+    "name": "Necrosphinx",
+    "category": "miniatures",
+    "image": "tomb2.jpg",
+    "price": 49.99,
+    "description": " Necrosphinxes are terrifying war-constructs,\n patterned after the various mythical beasts that inhabit the Nehekharan underworld. "
+  },
+  {
+    "id": 21,
+    "name": "Arcane Journal: High Elf Realms",
+    "category": "books",
+    "image": "book1.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of High Elves."
+  },
+  {
+    "id": 22,
+    "name": "Arcane Journal: Warriors of Chaos",
+    "category": "books",
+    "image": "book2.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of Warriors of Chaos."
+  },
+  {
+    "id": 23,
+    "name": "Arcane Journal: Dwarfen Mountain Holds",
+    "category": "books",
+    "image": "book3.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of Dwarfen Mountain Holds."
+  },
+  {
+    "id": 24,
+    "name": "Arcane Journal: Orc & Goblin Tribes",
+    "category": "books",
+    "image": "book4.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of Orc & Goblin Tribes."
+  },
+  {
+    "id": 25,
+    "name": "Arcane Journal: Empire of Man",
+    "category": "books",
+    "image": "book5.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of Empire of Man."
+  },
+  {
+    "id": 26,
+    "name": "Arcane Journal: Kingdom of Bretonnia",
+    "category": "books",
+    "image": "book6.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of Kingdom of Bretonnia."
+  },
+  {
+    "id": 27,
+    "name": "Arcane Journal: Tomb Kings of Khemri",
+    "category": "books",
+    "image": "book7.jpg",
+    "price": 19.99,
+    "description": "This essential guidebook studies the rich history and background of the various cultures of Tomb Kings of Khemri."
+  },
+  {
+    "id": 28,
+    "name": "Forces of Fantasy",
+    "category": "books",
+    "image": "book8.jpg",
+    "price": 29.99,
+    "description": "Forces of Fantasy is your indispensable guide to the armies of order and civilisation."
+  },
+  {
+    "id": 29,
+    "name": "Ravening Hordes",
+    "category": "books",
+    "image": "book9.jpg",
+    "price": 29.99,
+    "description": "Ravening Hordes is your indispensable guide to the forces of evil in the World of Legend."
+  },
+  {
+    "id": 30,
+    "name": "Warhammer: The Old World Rulebook",
+    "category": "books",
+    "image": "book10.jpg",
+    "price": 39.99,
+    "description": "It is a dark age. An age where mighty armies from powerful nations clash to carve out empires on the field of battle."
+  },
+  {
+    "id": 31,
+    "name": "Skaventide",
+    "category": "books",
+    "image": "book11.jpg",
+    "price": 9.99,
+    "description": "A vicious, skittering Warhammer novel written by Gary Kloster."
+  },
+  {
+    "id": 32,
+    "name": "Callis & Toll",
+    "category": "books",
+    "image": "book12.jpg",
+    "price": 14.99,
+    "description": "Hanniver Toll and Armand Callis plunge into Cinderfall’s dirty underbelly to solve a ritual murder."
+  },
+  {
+    "id": 33,
+    "name": "The Hollow King",
+    "category": "books",
+    "image": "book13.jpg",
+    "price": 12.99,
+    "description": "A haunted, noble vampire seeks revenge on the cult that destroyed his kingdom."
+  },
+  {
+    "id": 34,
+    "name": "Gotrek and Maleneth",
+    "category": "books",
+    "image": "book14.jpg",
+    "price": 22.99,
+    "description": "Gotrek Gurnisson slays his way across the mortal realms."
+  },
+  {
+    "id": 35,
+    "name": "Temple of Silence",
+    "category": "books",
+    "image": "book15.jpg",
+    "price": 8.99,
+    "description": "Join Galen and Doralia ven Denst in a world of conspiracy, intrigue, and unknowable terrors."
+  },
+  {
+    "id": 36,
+    "name": "The Last Volari",
+    "category": "books",
+    "image": "book16.jpg",
+    "price": 9.99,
+    "description": "Doomed vampire, Nyssa Volari, faces down the nature of her curse,\n and the righteous fury of the faithful of Sigmar."
+  },
+  {
+    "id": 37,
+    "name": "Godeater's Son",
+    "category": "books",
+    "image": "book17.jpg",
+    "price": 11.49,
+    "description": "A virtuous man succumbs to the path of darkness, and wages a war against Sigmar."
+  },
+  {
+    "id": 38,
+    "name": "Bad Loon Rising",
+    "category": "books",
+    "image": "book18.jpg",
+    "price": 15.49,
+    "description": "Blessed by the Bad Moon, can Zograt become the greatest Loonboss?."
+  },
+  {
+    "id": 39,
+    "name": "Grombrindal: Ancestor's Burden",
+    "category": "books",
+    "image": "book19.jpg",
+    "price": 19.99,
+    "description": "Discover the heroic deeds of a legendary Duardin warrior."
+  },
+  {
+    "id": 40,
+    "name": "On the Shoulders of Giants and Other Stories",
+    "category": "books",
+    "image": "book20.jpg",
+    "price": 23.99,
+    "description": "Includes a novella, and 11 short stories following Sigmar's mortal followers."
+  },
+  {
+    "id": 41,
+    "name": "Spray: Wraithbone",
+    "category": "paints",
+    "image": "paint1.jpg",
+    "price": 15.99,
+    "description": "Wraithbone Spray is designed for basecoating plastic and provides the perfect basecoat for Contrast paints."
+  },
+  {
+    "id": 42,
+    "name": "Spray: Chaos Black",
+    "category": "paints",
+    "image": "paint2.jpg",
+    "price": 15.99,
+    "description": "Chaos Black Spray is designed for basecoating plastic and provides the perfect basecoat for Contrast paints."
+  },
+  {
+    "id": 43,
+    "name": "Leadbelcher ",
+    "category": "paints",
+    "image": "paint3.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 44,
+    "name": "Retributor Armour",
+    "category": "paints",
+    "image": "paint4.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 45,
+    "name": "Mephiston Red",
+    "category": "paints",
+    "image": "paint5.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 46,
+    "name": "Macragge Blue",
+    "category": "paints",
+    "image": "paint6.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 47,
+    "name": "Mournfang Brown",
+    "category": "paints",
+    "image": "paint7.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 48,
+    "name": "Celestra Grey",
+    "category": "paints",
+    "image": "paint8.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 49,
+    "name": "Caledor Sky",
+    "category": "paints",
+    "image": "paint9.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 50,
+    "name": "Incubi Darkness",
+    "category": "paints",
+    "image": "paint10.jpg",
+    "price": 5.99,
+    "description": "Citadel Base paints are high quality acrylic paints specially formulated for basecoating quickly and easily."
+  },
+  {
+    "id": 51,
+    "name": "Scenery Brush",
+    "category": "paints",
+    "image": "tool1.jpg",
+    "price": 8.99,
+    "description": "This large, flat brush is for quickly covering huge areas of terrain."
+  },
+  {
+    "id": 52,
+    "name": "Artificer Layer Brush",
+    "category": "paints",
+    "image": "tool2.jpg",
+    "price": 25.99,
+    "description": "Made from the highest-quality sable hair, are the best layering brushes."
+  },
+  {
+    "id": 53,
+    "name": "Shade Brush",
+    "category": "paints",
+    "image": "tool3.jpg",
+    "price": 12.99,
+    "description": "Add shadows and detail to your models easily."
+  },
+  {
+    "id": 54,
+    "name": "Cutters",
+    "category": "paints",
+    "image": "tool4.jpg",
+    "price": 15.99,
+    "description": "Cutters designed to remove plastic components from the frame."
+  },
+  {
+    "id": 55,
+    "name": "Painting Handle",
+    "category": "paints",
+    "image": "tool5.jpg",
+    "price": 8.99,
+    "description": "Painting Handle – making it easy to paint your model."
+  },
+  {
+    "id": 56,
+    "name": "Verdia Veldt Tufts",
+    "category": "paints",
+    "image": "base1.jpg",
+    "price": 9.99,
+    "description": "Includes 125 tufts that can be cut and shaped as needed."
+  },
+  {
+    "id": 57,
+    "name": "Mordian Corpsegrass Tufts",
+    "category": "paints",
+    "image": "base2.jpg",
+    "price": 9.99,
+    "description": "Includes 125 dry and arid-looking grass tufts."
+  },
+  {
+    "id": 58,
+    "name": "Desert Soil",
+    "category": "paints",
+    "image": "base3.jpg",
+    "price": 4.99,
+    "description": "Natural soil with small gravel."
+  },
+  {
+    "id": 59,
+    "name": "Paper Plants",
+    "category": "paints",
+    "image": "base4.jpg",
+    "price": 3.99,
+    "description": "array of realistic laser-cut paper cutout plants for making forestor jungle."
+  },
+  {
+    "id": 60,
+    "name": "Tufts - Grass Flock",
+    "category": "paints",
+    "image": "base5.jpg",
+    "price": 5.99,
+    "description": "High quality Nylon-type Flock with 2mm long fibers."
+  }
+]

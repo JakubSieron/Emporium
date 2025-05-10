@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
-import allProducts from '../data/products.json';
+//import allProducts from '../data/products.json';
 import './Books.css';
 
 const Books = () => {
-  const books = allProducts.filter(product => product.category === 'books');
+  const [products, setProducts] = useState([]);
+
+useEffect(() => {
+    fetch('http://localhost:5000/api/products')
+      .then((res) => res.json())
+      .then((data) => {
+        const filtered = data.filter((p) => p.category === 'books');
+        setProducts(filtered);
+      })
+      .catch((err) => console.error('Failed to fetch products:', err));
+  }, []);
 
   return (
     <div className="books-container">
       <div className="products-grid">
-        {books.map((item) => (
+        {products.map((product) => (
           <ProductCard
-            key={item.id}
-            id={item.id}
-            title={item.name}
-            description={item.description}
-            image={`/images/${item.image}`} 
-            price={item.price}
+            key={product._id}
+            id={product._id}
+            title={product.name}
+            description={product.description}
+            image={`/images/${product.image}`} 
+            price={product.price}
           />
         ))}
       </div>

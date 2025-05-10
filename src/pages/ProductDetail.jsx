@@ -1,18 +1,19 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import allProducts from '../data/products.json'; // Import your products
-import './ProductDetail.css'; // (Optional) Style file
+import { useParams, useNavigate } from 'react-router-dom';
+import allProducts from '../data/products.json';
+import './ProductDetail.css';
 
-const ProductDetail = () => {
-  const { id } = useParams(); // Get product id from URL
-  const product = allProducts.find((item) => item.id === parseInt(id)); // Find product
+const ProductDetail = ({ isModal = false }) => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const product = allProducts.find((item) => item.id === parseInt(id));
 
   if (!product) {
-    return <h2>Product not found.</h2>; // Error if product not found
+    return <h2>Product not found.</h2>;
   }
 
-  return (
-    <div className="product-detail-container">
+  const content = (
+    <div className="product-detail-content">
       <img
         src={`/images/${product.image}`}
         alt={product.name}
@@ -21,12 +22,33 @@ const ProductDetail = () => {
       <h1>{product.name}</h1>
       <p className="product-detail-description">{product.description}</p>
       <h2 className="product-detail-price">${product.price.toFixed(2)}</h2>
+    </div>
+  );
 
-      {/* Back button */}
-      <Link to="/" className="back-button">← Back to Home</Link>
+  // Render as full page
+  if (!isModal) {
+    return (
+      <div className="product-detail-container">
+        {content}
+        <button onClick={() => navigate(-1)} className="back-button">← Back</button>
+      </div>
+    );
+  }
+
+  // Render as centered modal
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button
+          onClick={() => navigate(-1)}
+          className="close-button"
+        >
+          ✕
+        </button>
+        {content}
+      </div>
     </div>
   );
 };
 
 export default ProductDetail;
-

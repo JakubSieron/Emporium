@@ -1,13 +1,13 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
-import styles from '../components/ProductCard.module.scss';
+import styles from './Miniatures.module.scss';
 import products from '../data/products.json';
 
 const Miniatures = () => {
   const miniatures = products.filter(product => product.category === 'miniatures');
 
   return (
-    <div className="page">
+    <div className={styles.miniaturesContainer}>
       <div className={styles.productGrid}>
         {miniatures.map((product) => (
           <ProductCard
@@ -24,5 +24,3 @@ const Miniatures = () => {
 };
 
 export default Miniatures;
-
-

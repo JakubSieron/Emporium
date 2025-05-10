@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <div className="footer-bottom-inner"> 
-          <h7>&copy; {new Date().getFullYear()} Fantasy Miniatures Emporium. All rights reserved.</h7>
+          <h6>&copy; {new Date().getFullYear()} Fantasy Miniatures Emporium. All rights reserved.</h6>
         </div>
       </div>
     </footer>

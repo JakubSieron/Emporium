@@ -8,6 +8,7 @@ import './Navbar.css';
 function Navbar() {
   const { user, logout } = useAuth();
   const { cartItems } = useCart();
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,21 +23,32 @@ function Navbar() {
   return (
     <nav>
         <ul>
-          <li><Link to="/">Home</Link></li>
+        <li>
+          <Link to="/">
+            <img src="/images/logo.png" alt="Logo" className="navbar-logo" />
+          </Link>
+        </li>
           <li><Link to="/miniatures">Miniatures</Link></li>
           <li><Link to="/books">Books</Link></li>
           <li><Link to="/paints">Paints</Link></li>
           <li><Link to="/contact">Contact Us</Link></li>
           <li><Link to="/about">About Us</Link></li>
           <li>
-            <Link to="/cart">
-              Cart {cartItems.length > 0 && `(${cartItems.length})`}
+            <Link to="/cart" className="cart-link">
+              <i className="fas fa-shopping-cart"></i>
+              {totalItems > 0 && (
+                <span className="cart-count">{totalItems}</span>
+              )}
             </Link>
-          </li>
 
+          </li>
           {!user && (
             <>
-              <li><Link to="/login">Login</Link></li>
+              <li>
+                <Link to="/login">
+                  <i className="fas fa-user"></i>
+                </Link>
+              </li>
               <li><Link to="/register">Sign Up</Link></li>
             </>
           )}

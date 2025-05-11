@@ -8,6 +8,9 @@ type Product = {
   image: string;
   price: number;
   category: 'miniatures' | 'books' | 'paints';
+  featured: boolean;
+  trending: boolean;
+  discounted: boolean;
 };
 
 type Props = {
@@ -18,12 +21,16 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
   const [tab, setTab] = useState<'miniatures' | 'books' | 'paints'>('miniatures');
   const [products, setProducts] = useState<Product[]>([]);
   const [editing, setEditing] = useState<Product | null>(null);
+  const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState<Omit<Product, '_id'>>({
     name: '',
     description: '',
     image: '',
     price: 0,
     category: tab,
+    featured: false,
+    trending: false,
+    discounted: false,
   });
 
   useEffect(() => {
@@ -50,7 +57,11 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
       image: product.image,
       price: product.price,
       category: product.category,
+      featured: product.featured,
+      trending: product.trending,
+      discounted: product.discounted,
     });
+    setShowForm(true);
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,6 +69,14 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
     setForm((prev) => ({
       ...prev,
       [name]: name === 'price' ? parseFloat(value) : value,
+    }));
+  };
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: checked,
     }));
   };
 
@@ -85,8 +104,18 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
       setProducts((prev) => [...prev, savedProduct]);
     }
 
-    setForm({ name: '', description: '', image: '', price: 0, category: tab });
+    setForm({
+      name: '',
+      description: '',
+      image: '',
+      price: 0,
+      category: tab,
+      featured: false,
+      trending: false,
+      discounted: false,
+    });
     setEditing(null);
+    setShowForm(false);
   };
 
   const filtered = products.filter((p) => p.category === tab);
@@ -96,7 +125,8 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
       <div className={styles.modal}>
         <button className={styles.closeButton} onClick={onClose}>✕</button>
         <h2>Manage Products</h2>
-
+       
+       <div className={styles.topBar}>
         <div className={styles.tabs}>
           {(['miniatures', 'books', 'paints'] as const).map((cat) => (
             <button
@@ -107,6 +137,15 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
             </button>
           ))}
+        </div>
+
+        <button className={styles.addButton} onClick={() => {
+          setEditing(null);
+          setForm({ name: '', description: '', image: '', price: 0, category: tab, featured: false, trending: false, discounted: false });
+          setShowForm(true);
+        }}>
+          ➕ Add Product
+        </button>
         </div>
 
         <div className={styles.grid}>
@@ -123,18 +162,97 @@ const AdminModal: React.FC<Props> = ({ onClose }) => {
           ))}
         </div>
 
-        <h3>{editing ? 'Edit Product' : 'Add New Product'}</h3>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input name="name" value={form.name} onChange={handleFormChange} placeholder="Name" required />
-          <textarea name="description" value={form.description} onChange={handleFormChange} placeholder="Description" required />
-          <input name="image" value={form.image} onChange={handleFormChange} placeholder="Image filename" required />
-          <input name="price" type="number" value={form.price} onChange={handleFormChange} placeholder="Price" required />
+       {showForm && (
+  <div className={styles.formOverlay}>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <h3>{editing ? 'Edit Product' : 'Add New Product'}</h3>
 
-          <button type="submit">{editing ? 'Update' : 'Add Product'}</button>
-        </form>
+      <label htmlFor="name">Name</label>
+      <input
+        id="name"
+        name="name"
+        value={form.name}
+        onChange={handleFormChange}
+        required
+      />
+
+      <label htmlFor="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        value={form.description}
+        onChange={handleFormChange}
+        required
+      />
+
+      <label htmlFor="image">Image Filename</label>
+      <input
+        id="image"
+        name="image"
+        value={form.image}
+        onChange={handleFormChange}
+        required
+      />
+
+      <label htmlFor="price">Price</label>
+      <input
+        id="price"
+        name="price"
+        type="number"
+        value={form.price}
+        onChange={handleFormChange}
+        required
+      />
+      
+      
+      <div className={styles.checkboxGroup}>
+  <label>
+    <input
+      type="checkbox"
+      name="featured"
+      checked={form.featured}
+      onChange={handleCheckboxChange}
+    />
+    Featured
+  </label>
+  <label>
+    <input
+      type="checkbox"
+      name="trending"
+      checked={form.trending}
+      onChange={handleCheckboxChange}
+    />
+    Trending
+  </label>
+  <label>
+    <input
+      type="checkbox"
+      name="discounted"
+      checked={form.discounted}
+      onChange={handleCheckboxChange}
+    />
+    Discounted
+  </label>
+</div>
+
+
+      <div className={styles.formActions}>
+        <button type="submit">{editing ? 'Update' : 'Add Product'}</button>
+        <button type="button" onClick={() => {
+          setShowForm(false);
+          setEditing(null);
+        }}>
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+)}
+       
       </div>
     </div>
   );
 };
 
 export default AdminModal;
+

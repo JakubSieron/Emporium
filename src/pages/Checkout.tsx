@@ -1,20 +1,39 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import styles from './Checkout.module.scss';
 
 const Checkout = () => {
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
-  const total = cartItems.reduce((sum, item) => {
-    const qty = item.quantity || 1;
-    return sum + item.price * qty;
-  }, 0);
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
-  const handleConfirm = () => {
-    alert('✅ Order confirmed! (This would send data to backend)');
-    // You could add actual logic to send order here
+  const handleConfirm = async () => {
+    if (!user) return alert('You must be logged in to place an order.');
+
+    try {
+      await fetch('http://localhost:5000/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: user.email,
+          items: cartItems,
+          total,
+        }),
+      });
+
+      clearCart();          // ✅ 2. Clear cart
+      navigate('/');        // ✅ 3. Redirect home
+    } catch (err) {
+      alert('❌ Failed to place order.');
+      console.error(err);
+    }
   };
 
   return (
@@ -34,11 +53,9 @@ const Checkout = () => {
           <ul className={styles.itemList}>
             {cartItems.map((item) => (
               <li key={item.id} className={styles.item}>
-                <span className={styles.title}>{item.title}</span>
-                <span className={styles.quantity}>× {item.quantity}</span>
-                <span className={styles.price}>
-                  €{(item.price * item.quantity).toFixed(2)}
-                </span>
+                <span>{item.title}</span>
+                <span>× {item.quantity}</span>
+                <span>€{(item.price * item.quantity).toFixed(2)}</span>
               </li>
             ))}
           </ul>

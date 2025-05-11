@@ -39,7 +39,7 @@ app.use((req, res, next) => {
   next();
 });
 console.log('➡️  Setting up CORS');
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173' }));
 console.log('➡️  Parsing JSON');
 app.use(express.json());
 

@@ -16,6 +16,7 @@ useEffect(() => {
       .catch((err) => console.error('Failed to fetch products:', err));
   }, []);
 
+
   return (
     <div className="books-container">
       <div className="products-grid">

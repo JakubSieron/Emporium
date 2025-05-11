@@ -32,9 +32,10 @@ app.use((req, res, next) => {
 console.log('➡️  Setting CSP header');
 app.use((req, res, next) => {
   res.setHeader(
-    'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: http://localhost:5000;"
-  );
+  'Content-Security-Policy',
+  "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: http://localhost:5000; connect-src 'self' http://localhost:5000;"
+);
+
   next();
 });
 console.log('➡️  Setting up CORS');

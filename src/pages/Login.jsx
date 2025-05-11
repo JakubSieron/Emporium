@@ -4,7 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
+  
   const { login } = useAuth();
+  console.log('✅ useAuth login function:', login);
+  if (typeof login !== 'function') {
+  console.error('❌ login function is not defined or not a function');
+}
+  
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');

@@ -8,13 +8,14 @@ console.log('📦 Loading productRoutes...');
 const productRoutes = require('./routes/products');
 console.log('🔐 Loading authRoutes...');
 const authRoutes = require('./routes/auth');
+console.log('📦 Loading orderRoutes...');
+const orderRoutes = require('./routes/orders'); // ✅ ADD THIS LINE
 
 dotenv.config();
 
 const app = express();
 
 // ✅ CSP logger (optional)
-
 app.use((req, res, next) => {
   const originalSetHeader = res.setHeader;
   res.setHeader = function (name, value) {
@@ -32,20 +33,21 @@ app.use((req, res, next) => {
 console.log('➡️  Setting CSP header');
 app.use((req, res, next) => {
   res.setHeader(
-  'Content-Security-Policy',
-  "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: http://localhost:5000; connect-src 'self' http://localhost:5000;"
-);
-
+    'Content-Security-Policy',
+    "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: http://localhost:5000; connect-src 'self' http://localhost:5000;"
+  );
   next();
 });
+
 console.log('➡️  Setting up CORS');
 app.use(cors({ origin: 'http://localhost:5173' }));
+
 console.log('➡️  Parsing JSON');
-app.use(express.json());
+app.use(express.json()); // ✅ MIDDLEWARE before routes
 
 // ✅ Favicon route
 app.get('/favicon.ico', (req, res) => {
-   console.log('🧢 Favicon request intercepted');
+  console.log('🧢 Favicon request intercepted');
   res.status(204).end();
 });
 
@@ -54,14 +56,15 @@ console.log('➡️  Mounting product routes');
 app.use('/api/products', productRoutes);
 console.log('➡️  Mounting auth routes');
 app.use('/api', authRoutes);
+console.log('➡️  Mounting order routes');
+app.use('/api/orders', orderRoutes); // ✅ ADD THIS LINE
 
-// ✅ Correct fallback for unknown routes
+// ✅ Fallback for unknown routes
 console.log('➡️  Adding fallback route');
 app.use((req, res) => {
   console.warn(`❌ 404 for: ${req.method} ${req.originalUrl}`);
   res.status(404).json({ error: 'Not found' });
 });
-
 
 // ✅ Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {

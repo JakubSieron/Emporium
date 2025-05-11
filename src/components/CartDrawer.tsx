@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import styles from './CartDrawer.module.scss';
 
 type Props = {
@@ -8,11 +9,18 @@ type Props = {
 };
 
 const CartDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
-const { cartItems, addToCart, decrementFromCart, removeFromCart } = useCart();
-const totalPrice = cartItems.reduce(
-  (sum, item) => sum + item.price * item.quantity,
-  0
-);
+  const { cartItems, addToCart, decrementFromCart, removeFromCart } = useCart();
+  const totalPrice = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    onClose(); // Close drawer before navigation
+    navigate('/checkout');
+  };
 
   return (
     <>
@@ -29,39 +37,40 @@ const totalPrice = cartItems.reduce(
         {cartItems.length === 0 ? (
           <p className={styles.empty}>Your cart is empty.</p>
         ) : (
-         
-  <div className={styles.items}>
-    {cartItems.map((item) => (
-      <div key={item.id} className={styles.item}>
-        <img src={item.image} alt={item.title} />
-        <div className={styles.info}>
-          <h4>{item.title}</h4>
-          <p>€{item.price.toFixed(2)}</p>
-          <div className={styles.controls}>
-            <button onClick={() => decrementFromCart(item.id)}>-</button>
-            <span>{item.quantity}</span>
-            <button onClick={() => addToCart(item)}>+</button>
-            <button onClick={() => removeFromCart(item.id)}>🗑️</button>
+          <div className={styles.items}>
+            {cartItems.map((item) => (
+              <div key={item.id} className={styles.item}>
+                <img src={item.image} alt={item.title} />
+                <div className={styles.info}>
+                  <h4>{item.title}</h4>
+                  <p>€{item.price.toFixed(2)}</p>
+                  <div className={styles.controls}>
+                    <button onClick={() => decrementFromCart(item.id)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => addToCart(item)}>+</button>
+                    <button onClick={() => removeFromCart(item.id)}>🗑️</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            <div className={styles.totalSection}>
+              <div className={styles.total}>
+                <span>Total:</span>
+                <span>€{totalPrice.toFixed(2)}</span>
+              </div>
+
+              <button
+                className={styles.checkoutButton} 
+                onClick={() => {
+                  onClose(); // close drawer
+                  navigate('/checkout'); // go to checkout page
+                }}
+              >
+                Checkout
+              </button>
+            </div>
           </div>
-        </div>
-      </div>
-    ))}
-  
-
-  <div className={styles.totalSection}>
-  <div className={styles.total}>
-    <span>Total:</span>
-    <span>€{totalPrice.toFixed(2)}</span>
-  </div>
-
-  <button className={styles.checkoutButton} onClick={() => alert('Checkout coming soon!')}>
-    Checkout
-  </button>
-</div>
-</div>
-
-
-
         )}
       </div>
     </>

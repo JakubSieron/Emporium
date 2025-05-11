@@ -3,8 +3,9 @@ import React, {
   useState,
   useContext,
   ReactNode,
+  useEffect,
 } from 'react';
-import { CartItem } from '../types/CartItem'; // ✅ your shared type
+import { CartItem } from '../types/CartItem';
 
 type CartContextType = {
   cartItems: CartItem[];
@@ -25,6 +26,23 @@ export const useCart = (): CartContextType => {
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  // ✅ Load cart from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem('cartItems');
+    if (stored) {
+      try {
+        setCartItems(JSON.parse(stored));
+      } catch (e) {
+        console.error('Failed to parse cartItems from localStorage:', e);
+      }
+    }
+  }, []);
+
+  // ✅ Save to localStorage whenever cart changes
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     setCartItems((prev) => {

@@ -3,11 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import styles from './ProductCard.module.scss';
 
-type ProductCardProps = {
-  id: number;
+export type CartItem = {
+  id: string; // ✅ must match backend _id type
   title: string;
   image: string;
   price: number;
+  quantity: number;
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, title, image, price }) => {

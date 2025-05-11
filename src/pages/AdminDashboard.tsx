@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import AdminModal from '../components/AdminModal/AdminModal';
+import AdminOrdersModal from '../components/AdminModal/AdminOrdersModal';
 import './AdminDashboard.css'; // Keep this if you're using it
 
 const AdminDashboard: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showProductModal, setShowProductModal] = useState(false);
+  const [showOrdersModal, setShowOrdersModal] = useState(false);
   const { user } = useAuth();
 
   return (
@@ -12,11 +14,12 @@ const AdminDashboard: React.FC = () => {
       <h1>Admin Dashboard</h1>
 
       <div className="admin-actions">
-        <button onClick={() => setShowModal(true)}>🛠 Manage Products</button>
-        <button disabled>📦 View Orders (Coming Soon)</button>
+        <button onClick={() => setShowProductModal(true)}>🛠 Manage Products</button>
+        <button onClick={() => setShowOrdersModal(true)}>📦 View Orders</button>
       </div>
 
-      {showModal && <AdminModal onClose={() => setShowModal(false)} />}
+      {showProductModal && <AdminModal onClose={() => setShowProductModal(false)} />}
+      {showOrdersModal && <AdminOrdersModal onClose={() => setShowOrdersModal(false)} />}
     </div>
   );
 };

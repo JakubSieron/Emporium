@@ -9,7 +9,7 @@ const productRoutes = require('./routes/products');
 console.log('🔐 Loading authRoutes...');
 const authRoutes = require('./routes/auth');
 console.log('📦 Loading orderRoutes...');
-const orderRoutes = require('./routes/orders'); // ✅ ADD THIS LINE
+const orderRoutes = require('./routes/orders'); 
 
 dotenv.config();
 
@@ -57,7 +57,7 @@ app.use('/api/products', productRoutes);
 console.log('➡️  Mounting auth routes');
 app.use('/api', authRoutes);
 console.log('➡️  Mounting order routes');
-app.use('/api/orders', orderRoutes); // ✅ ADD THIS LINE
+app.use('/api/orders', orderRoutes); 
 
 // ✅ Fallback for unknown routes
 console.log('➡️  Adding fallback route');

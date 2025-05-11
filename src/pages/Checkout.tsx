@@ -28,10 +28,10 @@ const Checkout = () => {
         }),
       });
 
-      clearCart();          // ✅ 2. Clear cart
-      navigate('/');        // ✅ 3. Redirect home
+      clearCart();        
+      navigate('/');       
     } catch (err) {
-      alert('❌ Failed to place order.');
+      alert('Failed to place order.');
       console.error(err);
     }
   };

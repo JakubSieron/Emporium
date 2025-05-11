@@ -21,6 +21,8 @@ import ProductDetail from './pages/ProductDetail';
 import DashboardRedirect from './pages/DashboardRedirect';
 import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 import ProtectedUserRoute from './components/ProtectedUserRoute';
+import ProductForm from './pages/ProductForm';
+
 
 import './App.css';
 
@@ -45,6 +47,9 @@ function AppRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<DashboardRedirect />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/new" element={<ProductForm />} />
+          <Route path="/admin/edit/:id" element={<ProductForm />} />
           <Route path="/admin" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute>} />
           <Route path="/user" element={<ProtectedUserRoute><UserDashboard /></ProtectedUserRoute>} />
         </Routes>
